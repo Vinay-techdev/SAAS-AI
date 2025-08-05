@@ -6,7 +6,7 @@ An AI-powered SaaS web application built with a modern full-stack architecture. 
 
 ## 🚀 Live Demo
 
-👉 [Visit the Live App]()
+👉 [Visit the Live App](https://saas-ai-alpha-peach.vercel.app/)
 
 ---
 
@@ -24,9 +24,13 @@ An AI-powered SaaS web application built with a modern full-stack architecture. 
 
 ## 🛠️ Tech Stack
 
-| Frontend        | Backend         | AI-API     | Database | Auth  | Deployment |
-|-----------------|------------------|----------------|---------------|-------------|
-| React.js        | Node.js + Express | OpenAI, ClipDrop | Neon PostgreSQL | Clerk | Vercel |
+📦 Tech Stack
+- Frontend: React.js
+- Backend: Node.js, Express.js
+- Database: Neon PostgreSQL
+- Auth: Clerk
+- AI APIs: OpenAI, ClipDrop
+- Storage: Cloudinary
 
 ---
 
@@ -57,10 +61,9 @@ npm install
 ---
 
 ### 3. Set Environment Variables
-# Create a .env file in your backend folder:
 # Backend ENV
 ```bash
-PORT=5000
+PORT=
 GEMINI_API_KEY= 
 CLIPDROP_API_KEY=
 CLOUDINARY_CLOUD_NAME=your_cloud_name
