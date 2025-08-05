@@ -187,10 +187,10 @@ export const removeImageBackground = async (req, res) => {
     await sql`INSERT INTO creations (user_id, prompt, content, type) 
               VALUES (${userId}, 'Remove background from image', ${secure_url}, 'image')`;
     
-    //  // Clean up local file
-    // fs.unlink(image.path, (err) => {
-    //   if (err) console.error("File cleanup error:", err);
-    // });
+     // Clean up local file
+    fs.unlink(image.path, (err) => {
+      if (err) console.error("File cleanup error:", err);
+    });
 
     res.json({success: true, content: secure_url})
     
@@ -244,10 +244,10 @@ export const removeImageObject = async (req, res) => {
     await sql`INSERT INTO creations (user_id, prompt, content, type) 
               VALUES (${userId}, ${`Removed ${object} from image`}, ${imageUrl}, 'image')`;
 
-    // // Clean up file
-    // fs.unlink(image.path, (err) => {
-    //   if (err) console.error("File cleanup error:", err);
-    // });
+    // Clean up file
+    fs.unlink(image.path, (err) => {
+      if (err) console.error("File cleanup error:", err);
+    });
 
     res.json({success: true, content: imageUrl})
     
@@ -328,6 +328,10 @@ export const resumeReview = async (req, res) => {
     // Save to DB
     await sql`INSERT INTO creations (user_id, prompt, content, type) 
               VALUES (${userId}, 'Review the uploaded resume', ${content}, 'resume-review')`;
+
+    fs.unlink(resume.path, (err) => {
+      if (err) console.error("File cleanup error:", err);
+    });
 
     res.json({success: true, content})
     
